@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, BookOpen, Clock, CreditCard, Shield, Users, Sparkles } from 'lucide-react';
+import { ArrowRight, BookOpen, Clock, CreditCard, Shield, Users, Sparkles, Mail } from 'lucide-react';
 
 export const CTA: React.FC = () => {
   return (
@@ -9,17 +9,17 @@ export const CTA: React.FC = () => {
           <div className="cta-header">
             <div className="cta-badge">
               <Sparkles size={16} className="badge-icon" />
-              <span className="badge-text">Start Your Journey</span>
+              <span className="badge-text">Ready to Get Started?</span>
             </div>
             
             <h2 className="cta-title">
-              Ready to Transform Your 
-              <span className="cta-accent"> Teaching Experience?</span>
+              Transform Your 
+              <span className="cta-accent"> Teaching Today</span>
             </h2>
             
             <p className="cta-description">
-              Experience the power of AI-driven lesson planning. Create professional, 
-              engaging lessons in minutes instead of hours.
+              Join the future of lesson planning. Create engaging, curriculum-aligned lessons 
+              in minutes, not hours.
             </p>
           </div>
           
@@ -29,17 +29,8 @@ export const CTA: React.FC = () => {
                 <Clock size={24} />
               </div>
               <div className="benefit-content">
-                <h3 className="benefit-title">14-day free trial</h3>
-                <p className="benefit-description">Full access to all features, no restrictions</p>
-              </div>
-            </div>
-            <div className="cta-benefit">
-              <div className="benefit-icon">
-                <CreditCard size={24} />
-              </div>
-              <div className="benefit-content">
-                <h3 className="benefit-title">No credit card required</h3>
-                <p className="benefit-description">Start immediately, no strings attached</p>
+                <h3 className="benefit-title">Get Started Free</h3>
+                <p className="benefit-description">No credit card required to try</p>
               </div>
             </div>
             <div className="cta-benefit">
@@ -47,8 +38,17 @@ export const CTA: React.FC = () => {
                 <Shield size={24} />
               </div>
               <div className="benefit-content">
-                <h3 className="benefit-title">Cancel anytime</h3>
-                <p className="benefit-description">No long-term commitments</p>
+                <h3 className="benefit-title">Privacy First</h3>
+                <p className="benefit-description">Your data stays secure</p>
+              </div>
+            </div>
+            <div className="cta-benefit">
+              <div className="benefit-icon">
+                <Users size={24} />
+              </div>
+              <div className="benefit-content">
+                <h3 className="benefit-title">Built for Educators</h3>
+                <p className="benefit-description">By teachers, for teachers</p>
               </div>
             </div>
           </div>
@@ -56,30 +56,13 @@ export const CTA: React.FC = () => {
           <div className="cta-actions">
             <button className="btn-primary cta-primary">
               <BookOpen size={20} />
-              Start Free Trial
+              Start Creating Lessons
               <ArrowRight size={16} />
             </button>
             <button className="btn-secondary cta-secondary">
-              <Users size={20} />
-              Schedule Demo
+              <Mail size={20} />
+              Contact Us
             </button>
-          </div>
-          
-          <div className="cta-trust">
-            <div className="trust-badges">
-              <div className="trust-badge">
-                <Shield size={16} />
-                <span>Privacy Focused</span>
-              </div>
-              <div className="trust-badge">
-                <Users size={16} />
-                <span>Educator Built</span>
-              </div>
-              <div className="trust-badge">
-                <BookOpen size={16} />
-                <span>Education First</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

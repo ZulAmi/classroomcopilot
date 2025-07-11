@@ -11,7 +11,8 @@ import {
   X,
   Globe,
   LayoutDashboard,
-  ChevronDown
+  ChevronDown,
+  Sparkles
 } from 'lucide-react';
 import { useAuth } from './AuthContext';
 import { useAppMode } from './AppModeContext';
@@ -43,7 +44,7 @@ export const Navbar: React.FC = () => {
   };
 
   const spaNavItems = [
-    { path: '/dashboard', label: 'Dashboard', icon: BookOpen },
+    { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { path: '/create', label: 'Create Plan', icon: PlusCircle },
     { path: '/plans', label: 'My Plans', icon: FileText },
     { path: '/settings', label: 'Settings', icon: Settings },
@@ -51,8 +52,8 @@ export const Navbar: React.FC = () => {
 
   const websiteNavItems = [
     { path: '/', label: 'Home', icon: BookOpen },
-    { path: '/features', label: 'Features', icon: FileText },
-    { path: '/pricing', label: 'Pricing', icon: Settings },
+    { path: '/features', label: 'Features', icon: Sparkles },
+    { path: '/pricing', label: 'Pricing', icon: FileText },
     { path: '/about', label: 'About', icon: User },
   ];
 
@@ -74,7 +75,9 @@ export const Navbar: React.FC = () => {
       <div className="navbar-container">
         {/* Logo */}
         <Link to={homeLink} className="navbar-logo">
-          <BookOpen className="logo-icon" />
+          <div className="logo-icon-wrapper">
+            <BookOpen className="logo-icon" />
+          </div>
           <span className="logo-text">Classroom Copilot</span>
         </Link>
 
@@ -135,18 +138,23 @@ export const Navbar: React.FC = () => {
                   <span className="user-name">{user?.name}</span>
                   <span className="user-role">{user?.role}</span>
                 </div>
-                <ChevronDown size={16} className={`user-menu-arrow ${userMenuOpen ? 'open' : ''}`} />
+                <ChevronDown size={14} className={`user-menu-arrow ${userMenuOpen ? 'open' : ''}`} />
               </div>
               
               {userMenuOpen && (
                 <div className="user-dropdown">
                   <div className="user-dropdown-header">
-                    <div className="dropdown-user-name">{user?.name}</div>
-                    <div className="dropdown-user-email">{user?.email}</div>
+                    <div className="dropdown-user-avatar">
+                      {user.name ? user.name.charAt(0).toUpperCase() : <User size={20} />}
+                    </div>
+                    <div className="dropdown-user-info">
+                      <div className="dropdown-user-name">{user?.name}</div>
+                      <div className="dropdown-user-email">{user?.email}</div>
+                    </div>
                   </div>
                   <div className="user-dropdown-divider"></div>
                   <Link to="/dashboard" className="dropdown-item">
-                    <BookOpen size={16} />
+                    <LayoutDashboard size={16} />
                     <span>Dashboard</span>
                   </Link>
                   <Link to="/settings" className="dropdown-item">
@@ -167,6 +175,7 @@ export const Navbar: React.FC = () => {
                 Sign In
               </Link>
               <Link to="/auth?mode=signup" className="btn-nav btn-primary">
+                <Sparkles size={16} />
                 Get Started
               </Link>
             </div>
@@ -180,7 +189,7 @@ export const Navbar: React.FC = () => {
               setMobileMenuOpen(!mobileMenuOpen);
             }}
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -188,79 +197,97 @@ export const Navbar: React.FC = () => {
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <div className="mobile-menu">
+          <div className="mobile-menu-backdrop" onClick={() => setMobileMenuOpen(false)}></div>
           <div className="mobile-menu-container">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = location.pathname === item.path;
+            <div className="mobile-menu-header">
+              <div className="mobile-logo">
+                <div className="logo-icon-wrapper">
+                  <BookOpen className="logo-icon" />
+                </div>
+                <span className="logo-text">Classroom Copilot</span>
+              </div>
+              <button 
+                className="mobile-menu-close"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <X size={20} />
+              </button>
+            </div>
+            
+            <div className="mobile-menu-content">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`mobile-nav-item ${isActive ? 'active' : ''}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Icon size={18} />
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
               
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`mobile-nav-item ${isActive ? 'active' : ''}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Icon size={18} />
-                  <span>{item.label}</span>
-                </Link>
-              );
-            })}
-            
-            <div className="mobile-menu-divider"></div>
-            
-            {/* Mobile Mode Toggle */}
-            <button 
-              onClick={() => {
-                toggleMode();
-                setMobileMenuOpen(false);
-              }}
-              className="mobile-nav-item mode-toggle-mobile"
-            >
-              {mode === 'spa' ? (
+              <div className="mobile-menu-divider"></div>
+              
+              {/* Mobile Mode Toggle */}
+              <button 
+                onClick={() => {
+                  toggleMode();
+                  setMobileMenuOpen(false);
+                }}
+                className="mobile-nav-item mode-toggle-mobile"
+              >
+                {mode === 'spa' ? (
+                  <>
+                    <Globe size={18} />
+                    <span>Switch to Website</span>
+                  </>
+                ) : (
+                  <>
+                    <LayoutDashboard size={18} />
+                    <span>Switch to App</span>
+                  </>
+                )}
+              </button>
+              
+              <div className="mobile-menu-divider"></div>
+              
+              {user ? (
                 <>
-                  <Globe size={18} />
-                  <span>Switch to Website</span>
+                  <div className="mobile-user-info">
+                    <div className="mobile-user-avatar">
+                      {user.name ? user.name.charAt(0).toUpperCase() : <User size={20} />}
+                    </div>
+                    <div className="mobile-user-details">
+                      <span className="mobile-user-name">{user?.name}</span>
+                      <span className="mobile-user-role">{user?.role}</span>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={handleLogout} 
+                    className="mobile-nav-item mobile-logout-btn"
+                  >
+                    <LogOut size={18} />
+                    <span>Sign out</span>
+                  </button>
                 </>
               ) : (
-                <>
-                  <LayoutDashboard size={18} />
-                  <span>Switch to App</span>
-                </>
-              )}
-            </button>
-            
-            <div className="mobile-menu-divider"></div>
-            
-            {user ? (
-              <>
-                <div className="mobile-user-info">
-                  <div className="mobile-user-avatar">
-                    {user.name ? user.name.charAt(0).toUpperCase() : <User size={20} />}
-                  </div>
-                  <div className="mobile-user-details">
-                    <span className="mobile-user-name">{user?.name}</span>
-                    <span className="mobile-user-role">{user?.role}</span>
-                  </div>
+                <div className="mobile-auth-buttons">
+                  <Link to="/auth" className="mobile-auth-btn secondary" onClick={() => setMobileMenuOpen(false)}>
+                    Sign In
+                  </Link>
+                  <Link to="/auth?mode=signup" className="mobile-auth-btn primary" onClick={() => setMobileMenuOpen(false)}>
+                    <Sparkles size={16} />
+                    Get Started
+                  </Link>
                 </div>
-                <button 
-                  onClick={handleLogout} 
-                  className="mobile-nav-item mobile-logout-btn"
-                >
-                  <LogOut size={18} />
-                  <span>Sign out</span>
-                </button>
-              </>
-            ) : (
-              <div className="mobile-auth-buttons">
-                <Link to="/auth" className="mobile-nav-item" onClick={() => setMobileMenuOpen(false)}>
-                  <User size={18} />
-                  <span>Sign In</span>
-                </Link>
-                <Link to="/auth?mode=signup" className="mobile-auth-cta" onClick={() => setMobileMenuOpen(false)}>
-                  Get Started
-                </Link>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       )}
