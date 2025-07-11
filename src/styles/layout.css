@@ -1,0 +1,95 @@
+/* Layout Components */
+
+/* App Structure */
+.app {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Website Homepage */
+.website-homepage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.website-content {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Full-width containers */
+.hero-container,
+.features-container,
+.testimonials-container,
+.cta-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+/* Section Styles - Full height */
+.hero,
+.features,
+.testimonials,
+.cta {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 0;
+}
+
+.features,
+.testimonials,
+.cta {
+  padding: var(--spacing-6xl) 0;
+}
+
+/* Responsive containers */
+@media (max-width: 1440px) {
+  .hero-container,
+  .features-container,
+  .testimonials-container,
+  .cta-container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-container,
+  .features-container,
+  .testimonials-container,
+  .cta-container {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container,
+  .features-container,
+  .testimonials-container,
+  .cta-container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .hero,
+  .features,
+  .testimonials,
+  .cta {
+    min-height: auto;
+  }
+}

@@ -1,31 +1,31 @@
 import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import { BookOpen, Clock, Users, Target, CheckCircle, ArrowRight, Lightbulb, Zap } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
-  const testimonials = [
+  const benefits = [
     {
-      name: 'Sarah Johnson',
-      role: '3rd Grade Teacher',
-      school: 'Lincoln Elementary',
-      avatar: '👩‍🏫',
-      rating: 5,
-      text: 'Classroom Copilot has transformed how I plan lessons. What used to take hours now takes minutes, and the quality is incredible!'
+      icon: Clock,
+      title: "Save Time",
+      description: "Reduce lesson planning time from hours to minutes with AI-powered generation.",
+      features: ["Quick generation", "Ready-to-use plans", "Instant customization"]
     },
     {
-      name: 'Michael Chen',
-      role: '5th Grade Teacher', 
-      school: 'Roosevelt Middle School',
-      avatar: '👨‍🏫',
-      rating: 5,
-      text: 'The AI-generated lessons are so comprehensive and age-appropriate. My students are more engaged than ever before.'
+      icon: Target,
+      title: "Stay Aligned",
+      description: "Ensure all lessons meet curriculum standards and learning objectives.",
+      features: ["Standards-based", "Age-appropriate", "Objective-driven"]
     },
     {
-      name: 'Emily Rodriguez',
-      role: '2nd Grade Teacher',
-      school: 'Sunshine Elementary',
-      avatar: '👩‍💼',
-      rating: 5,
-      text: 'I love how the platform creates activities for different learning styles. Every student in my class benefits.'
+      icon: BookOpen,
+      title: "Comprehensive Plans",
+      description: "Get complete lesson plans with activities, materials, and assessments.",
+      features: ["Full structure", "Activity ideas", "Assessment tools"]
+    },
+    {
+      icon: Users,
+      title: "Engage Students",
+      description: "Create lessons that capture attention and promote active learning.",
+      features: ["Interactive activities", "Varied learning styles", "Student-centered"]
     }
   ];
 
@@ -33,53 +33,40 @@ export const Testimonials: React.FC = () => {
     <section className="testimonials">
       <div className="testimonials-container">
         <div className="testimonials-header">
-          <h2>Loved by Teachers Everywhere</h2>
-          <p>See what educators are saying about Classroom Copilot</p>
+          <div className="testimonials-badge">
+            <Lightbulb size={16} />
+            <span>Why Choose Classroom Copilot</span>
+          </div>
+          <h2 className="testimonials-title">
+            Built for <span className="testimonials-accent">Modern Educators</span>
+          </h2>
+          <p className="testimonials-description">
+            Discover how AI-powered lesson planning can transform your teaching experience and help you create better learning outcomes.
+          </p>
         </div>
         
-        <div className="testimonials-grid">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
-              <div className="testimonial-header">
-                <div className="testimonial-avatar">
-                  <span className="avatar-emoji">{testimonial.avatar}</span>
+        <div className="benefits-grid">
+          {benefits.map((benefit, index) => (
+            <div key={index} className="benefit-card">
+              <div className="benefit-icon-wrapper">
+                <div className="benefit-icon">
+                  <benefit.icon size={24} />
                 </div>
-                <div className="testimonial-rating">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="star filled" />
+              </div>
+              <div className="benefit-content">
+                <h3 className="benefit-title">{benefit.title}</h3>
+                <p className="benefit-description">{benefit.description}</p>
+                <ul className="benefit-features">
+                  {benefit.features.map((feature, i) => (
+                    <li key={i} className="benefit-feature">
+                      <CheckCircle size={14} />
+                      <span>{feature}</span>
+                    </li>
                   ))}
-                </div>
-              </div>
-              
-              <div className="testimonial-content">
-                <Quote className="quote-icon" size={24} />
-                <p>{testimonial.text}</p>
-              </div>
-              
-              <div className="testimonial-author">
-                <div className="author-info">
-                  <h4>{testimonial.name}</h4>
-                  <p>{testimonial.role}</p>
-                  <span>{testimonial.school}</span>
-                </div>
+                </ul>
               </div>
             </div>
           ))}
-        </div>
-        
-        <div className="testimonials-stats">
-          <div className="stat-item">
-            <div className="stat-number">4.9/5</div>
-            <div className="stat-label">Average Rating</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">2,500+</div>
-            <div className="stat-label">Happy Teachers</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">50,000+</div>
-            <div className="stat-label">Students Impacted</div>
-          </div>
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@ import { MyPlans } from './MyPlans';
 import { Settings } from './Settings';
 import { AuthPage } from './AuthPage';
 import { Layout } from './Layout';
-import './App.css';
+import './index.css';
 
 // Protected route component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {

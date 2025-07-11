@@ -1,4 +1,4 @@
-/* src/index.css */
+/* Main CSS Import File */
 @import './styles/variables.css';
 @import './styles/reset.css';
 @import './styles/layout.css';
@@ -9,6 +9,7 @@
 @import './styles/components/forms.css';
 @import './styles/components/cards.css';
 @import './styles/components/animations.css';
+@import './styles/components/footer.css';
 
 /* Sections */
 @import './styles/sections/hero.css';

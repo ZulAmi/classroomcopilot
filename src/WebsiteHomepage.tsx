@@ -4,6 +4,7 @@ import { Hero } from './Hero.tsx';
 import { Features } from './Features.tsx';
 import { Testimonials } from './Testimonials.tsx';
 import { CTA } from './CTA.tsx';
+import { Footer } from './Footer.tsx';
 
 export const WebsiteHomepage: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ export const WebsiteHomepage: React.FC = () => {
         <Testimonials />
         <CTA />
       </main>
+      <Footer />
     </div>
   );
 };
