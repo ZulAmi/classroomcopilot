@@ -47,18 +47,18 @@ export const Testimonials: React.FC = () => {
         
         <div className="benefits-grid">
           {benefits.map((benefit, index) => (
-            <div key={index} className="benefit-card">
-              <div className="benefit-icon-wrapper">
-                <div className="benefit-icon">
+            <div key={index} className="testimonial-benefit-card">
+              <div className="testimonial-benefit-icon-wrapper">
+                <div className="testimonial-benefit-icon">
                   <benefit.icon size={24} />
                 </div>
               </div>
-              <div className="benefit-content">
-                <h3 className="benefit-title">{benefit.title}</h3>
-                <p className="benefit-description">{benefit.description}</p>
-                <ul className="benefit-features">
+              <div className="testimonial-benefit-content">
+                <h3 className="testimonial-benefit-title">{benefit.title}</h3>
+                <p className="testimonial-benefit-text">{benefit.description}</p>
+                <ul className="testimonial-benefit-features">
                   {benefit.features.map((feature, i) => (
-                    <li key={i} className="benefit-feature">
+                    <li key={i} className="testimonial-benefit-feature">
                       <CheckCircle size={14} />
                       <span>{feature}</span>
                     </li>

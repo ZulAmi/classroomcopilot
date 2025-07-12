@@ -117,68 +117,6 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="footer-newsletter">
-          <div className="newsletter-content">
-            <h3 className="newsletter-title">Stay Updated</h3>
-            <p className="newsletter-description">
-              Get the latest educational insights, lesson planning tips, and product updates delivered to your inbox.
-            </p>
-            <form className="newsletter-form">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="newsletter-input"
-                required
-              />
-              <button type="submit" className="newsletter-button">
-                Subscribe
-                <ArrowRight size={16} />
-              </button>
-            </form>
-            <p className="newsletter-note">
-              No spam, unsubscribe anytime. Read our <a href="#privacy" className="privacy-link">Privacy Policy</a>.
-            </p>
-          </div>
-        </div>
-
-        {/* Contact & Social */}
-        <div className="footer-contact">
-          <div className="contact-info">
-            <h3 className="contact-title">Get in Touch</h3>
-            <div className="contact-items">
-              <div className="contact-item">
-                <Mail size={18} />
-                <span>support@classroomcopilot.com</span>
-              </div>
-              <div className="contact-item">
-                <Phone size={18} />
-                <span>Available via email</span>
-              </div>
-              <div className="contact-item">
-                <MapPin size={18} />
-                <span>San Francisco, CA</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="social-section">
-            <h3 className="social-title">Follow Us</h3>
-            <div className="social-links">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="social-link"
-                  aria-label={social.name}
-                >
-                  <social.icon size={20} />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* Trust Badges */}
         <div className="footer-trust">
           <div className="trust-badges">

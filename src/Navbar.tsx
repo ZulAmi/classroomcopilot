@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
           <div className="logo-icon-wrapper">
             <BookOpen className="logo-icon" />
           </div>
-          <span className="logo-text">Classroom Copilot</span>
+          <span className="navbar-logo-text">Classroom Copilot</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -204,7 +204,7 @@ export const Navbar: React.FC = () => {
                 <div className="logo-icon-wrapper">
                   <BookOpen className="logo-icon" />
                 </div>
-                <span className="logo-text">Classroom Copilot</span>
+                <span className="navbar-logo-text">Classroom Copilot</span>
               </div>
               <button 
                 className="mobile-menu-close"

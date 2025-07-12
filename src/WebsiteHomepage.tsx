@@ -1,22 +1,22 @@
 import React from 'react';
-import { Navbar } from './Navbar.tsx';
-import { Hero } from './Hero.tsx';
-import { Features } from './Features.tsx';
-import { Testimonials } from './Testimonials.tsx';
-import { CTA } from './CTA.tsx';
-import { Footer } from './Footer.tsx';
+import { Hero } from './Hero';
+import { Features } from './Features';
+import { CTA } from './CTA';
+import { Footer } from './Footer';
 
-export const WebsiteHomepage: React.FC = () => {
+interface WebsiteHomepageProps {
+  includeFooter?: boolean;
+}
+
+export const WebsiteHomepage: React.FC<WebsiteHomepageProps> = ({ includeFooter = true }) => {
   return (
-    <div className="website-homepage">
-      <Navbar />
-      <main className="website-content">
+    <>
+      <main>
         <Hero />
         <Features />
-        <Testimonials />
         <CTA />
       </main>
-      <Footer />
-    </div>
+      {includeFooter && <Footer />}
+    </>
   );
 };

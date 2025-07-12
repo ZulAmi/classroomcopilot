@@ -58,18 +58,25 @@
 }
 
 .cta-title {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: var(--font-weight-black);
-  color: var(--white);
-  margin-bottom: var(--spacing-xl);
-  line-height: 1.2;
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  color: white; /* Explicit white color */
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.3;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-accent {
-  background: linear-gradient(135deg, var(--accent) 0%, #FDE68A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
+  position: relative;
+}
+
+.cta-description,
+.badge-text,
+.benefit-title,
+.benefit-description {
+  color: white; /* Make all CTA text elements white */
 }
 
 .cta-description {

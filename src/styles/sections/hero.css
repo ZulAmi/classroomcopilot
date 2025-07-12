@@ -434,72 +434,66 @@
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 .floating-card {
   position: absolute;
-  background: var(--white);
+  background: white;
   border-radius: var(--radius-xl);
-  padding: var(--spacing-lg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--gray-200);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-md);
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
+  pointer-events: auto;
   backdrop-filter: blur(10px);
   animation: float 6s ease-in-out infinite;
 }
 
-.floating-card.card-1 {
-  top: 10%;
-  left: -20%;
+/* Define the float animation that was missing */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Adjust positions for better visibility */
+.card-1 {
+  top: 15%;
+  left: -5%;
   animation-delay: 0s;
 }
 
-.floating-card.card-2 {
-  top: 50%;
-  right: -25%;
-  animation-delay: 2s;
+.card-2 {
+  top: 40%;
+  left: 80%; /* Moved more to the right */
+  animation-delay: 1.5s;
 }
 
-.floating-card.card-3 {
-  bottom: 20%;
-  left: -15%;
-  animation-delay: 4s;
+.card-3 {
+  bottom: 15%;
+  left: -5%;
+  animation-delay: 3s;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+/* Make responsive adjustments */
+@media (max-width: 1200px) {
+  .card-2 {
+    left: 70%; /* Adjusted for smaller screens */
+  }
 }
 
-.card-icon {
-  font-size: 1.5rem;
-  line-height: 1;
+@media (max-width: 992px) {
+  .card-2 {
+    left: 65%; /* Adjusted for medium screens */
+  }
 }
 
-.card-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.card-title {
-  font-size: 0.875rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--text);
-}
-
-.card-desc {
-  font-size: 0.75rem;
-  color: var(--gray-600);
-}
-
-/* Responsive Design */
+/* Remove the floating card display:none in the media query */
 @media (max-width: 1024px) {
   .hero {
     padding-top: 64px; /* Adjusted for smaller navbar on mobile */
@@ -516,7 +510,45 @@
   }
   
   .floating-card {
-    display: none;
+    animation: float 6s ease-in-out infinite; /* Ensure animation still works */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Stack cards or adjust for mobile */
+  .floating-card {
+    position: static;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .hero-floating-cards {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: var(--spacing-xl);
+  }
+  
+  .card-1, .card-2, .card-3 {
+    animation: none;
+    transform: none !important;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 64px; /* Adjusted for smaller navbar on mobile */
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4xl);
+    text-align: center;
+  }
+  
+  .hero-visual {
+    order: -1;
   }
 }
 

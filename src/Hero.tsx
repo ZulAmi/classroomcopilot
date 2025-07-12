@@ -1,5 +1,18 @@
 import React from 'react';
-import { ArrowRight, BookOpen, CheckCircle, Sparkles, Users, Clock } from 'lucide-react';
+import { 
+  ArrowRight, 
+  BookOpen, 
+  CheckCircle, 
+  Sparkles, 
+  Users, 
+  Clock, 
+  Calendar, 
+  BarChart, // Changed from Graph which isn't in lucide
+  BookmarkCheck, 
+  Clipboard, 
+  UserPlus, 
+  CreditCard 
+} from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
@@ -9,38 +22,38 @@ export const Hero: React.FC = () => {
           <div className="hero-text">
             <div className="hero-badge">
               <Sparkles size={16} className="badge-icon" />
-              <span className="badge-text">AI-Powered Lesson Planning</span>
+              <span className="badge-text">Complete Tuition Center Management</span>
             </div>
             
             <h1 className="hero-title">
-              Create Professional Lesson Plans in 
-              <span className="hero-accent"> Minutes, Not Hours</span>
+              Your All-in-One Tuition Center 
+              <span className="hero-accent"> Management Platform</span>
             </h1>
             
             <p className="hero-description">
-              Transform your teaching with AI-powered lesson planning. Generate comprehensive, 
-              curriculum-aligned lesson plans for any topic and age group with just a few clicks.
+              Transform your educational business with our comprehensive platform. From AI-powered lesson planning 
+              to student management, financial tracking, and parent communication - everything you need to scale your tuition center.
             </p>
             
             <div className="hero-features">
               <div className="hero-feature">
                 <CheckCircle size={20} className="feature-check" />
-                <span>AI-powered curriculum alignment</span>
+                <span>Streamlined student enrollment & attendance tracking</span>
               </div>
               <div className="hero-feature">
                 <CheckCircle size={20} className="feature-check" />
-                <span>Age-appropriate activities & assessments</span>
+                <span>Integrated payment & financial management</span>
               </div>
               <div className="hero-feature">
                 <CheckCircle size={20} className="feature-check" />
-                <span>Ready in under 5 minutes</span>
+                <span>Performance analytics & progress reporting</span>
               </div>
             </div>
             
             <div className="hero-actions">
               <button className="btn-primary hero-cta">
                 <BookOpen size={20} />
-                Start Planning Free
+                Start Free Trial
                 <ArrowRight size={16} />
               </button>
               <button className="btn-secondary hero-demo">
@@ -58,72 +71,59 @@ export const Hero: React.FC = () => {
                   <div className="nav-dot"></div>
                   <div className="nav-dot"></div>
                 </div>
-                <div className="dashboard-title">Lesson Plan Generator</div>
+                <div className="dashboard-title">Tuition Center Overview</div>
                 <div className="dashboard-actions">
                   <div className="action-btn">
-                    <Clock size={14} />
-                    <span>2 min</span>
+                    <Calendar size={14} />
+                    <span>July 2025</span>
                   </div>
                 </div>
               </div>
               
               <div className="dashboard-content">
-                <div className="plan-preview">
-                  <div className="plan-header">
-                    <div className="plan-meta">
-                      <span className="plan-subject">Science</span>
-                      <span className="plan-age">Ages 8-10</span>
-                      <span className="plan-duration">5 days</span>
-                    </div>
-                    <div className="plan-status">
-                      <span className="status-badge generating">Generating...</span>
-                    </div>
+                <div className="metrics-overview">
+                  <div className="metric-card">
+                    <div className="metric-title">Students</div>
+                    <div className="metric-value">128</div>
+                    <div className="metric-change positive">+12% ↑</div>
                   </div>
-                  
-                  <h3 className="plan-title">Solar System Exploration</h3>
-                  <p className="plan-description">Comprehensive 5-day lesson plan with interactive activities</p>
-                  
-                  <div className="plan-progress">
-                    <div className="progress-bar">
-                      <div className="progress-fill" style={{ width: '75%' }}></div>
-                    </div>
-                    <span className="progress-text">75% Complete</span>
+                  <div className="metric-card">
+                    <div className="metric-title">Revenue</div>
+                    <div className="metric-value">$9,240</div>
+                    <div className="metric-change positive">+8% ↑</div>
                   </div>
-                  
-                  <div className="plan-days">
-                    <div className="day-preview completed">
-                      <div className="day-number">1</div>
-                      <div className="day-content">
-                        <div className="day-title">Introduction to Our Solar System</div>
-                        <div className="day-activities">
-                          <span className="activity-count">3 activities</span>
-                          <span className="activity-duration">45 minutes</span>
-                        </div>
-                      </div>
-                      <div className="day-status completed-status"></div>
+                  <div className="metric-card">
+                    <div className="metric-title">Classes</div>
+                    <div className="metric-value">24</div>
+                    <div className="metric-change neutral">0% →</div>
+                  </div>
+                </div>
+                
+                <div className="upcoming-classes">
+                  <h4>Today's Schedule</h4>
+                  <div className="class-item">
+                    <div className="class-time">9:00 AM</div>
+                    <div className="class-details">
+                      <div className="class-name">Advanced English</div>
+                      <div className="class-info">12 students • Room 3</div>
                     </div>
-                    <div className="day-preview completed">
-                      <div className="day-number">2</div>
-                      <div className="day-content">
-                        <div className="day-title">The Sun and Inner Planets</div>
-                        <div className="day-activities">
-                          <span className="activity-count">4 activities</span>
-                          <span className="activity-duration">50 minutes</span>
-                        </div>
-                      </div>
-                      <div className="day-status completed-status"></div>
+                    <div className="class-status current"></div>
+                  </div>
+                  <div className="class-item">
+                    <div className="class-time">11:30 AM</div>
+                    <div className="class-details">
+                      <div className="class-name">Primary Math</div>
+                      <div className="class-info">15 students • Room 1</div>
                     </div>
-                    <div className="day-preview current">
-                      <div className="day-number">3</div>
-                      <div className="day-content">
-                        <div className="day-title">Outer Planets Adventure</div>
-                        <div className="day-activities">
-                          <span className="activity-count">3 activities</span>
-                          <span className="activity-duration">45 minutes</span>
-                        </div>
-                      </div>
-                      <div className="day-status current-status"></div>
+                    <div className="class-status upcoming"></div>
+                  </div>
+                  <div className="class-item">
+                    <div className="class-time">2:00 PM</div>
+                    <div className="class-details">
+                      <div className="class-name">Science Lab</div>
+                      <div className="class-info">10 students • Room 4</div>
                     </div>
+                    <div className="class-status upcoming"></div>
                   </div>
                 </div>
               </div>
@@ -131,24 +131,24 @@ export const Hero: React.FC = () => {
             
             <div className="hero-floating-cards">
               <div className="floating-card card-1">
-                <div className="card-icon">📚</div>
+                <div className="card-icon">📊</div>
                 <div className="card-text">
-                  <div className="card-title">Curriculum Aligned</div>
-                  <div className="card-desc">Common Core Standards</div>
+                  <div className="card-title">Smart Analytics</div>
+                  <div className="card-desc">Performance Tracking</div>
                 </div>
               </div>
               <div className="floating-card card-2">
                 <div className="card-icon">⚡</div>
                 <div className="card-text">
                   <div className="card-title">AI Powered</div>
-                  <div className="card-desc">Smart Generation</div>
+                  <div className="card-desc">Teaching Assistant</div>
                 </div>
               </div>
               <div className="floating-card card-3">
-                <div className="card-icon">🎯</div>
+                <div className="card-icon">💰</div>
                 <div className="card-text">
-                  <div className="card-title">Age Appropriate</div>
-                  <div className="card-desc">5-12 Years Old</div>
+                  <div className="card-title">Financial Tools</div>
+                  <div className="card-desc">Automated Billing</div>
                 </div>
               </div>
             </div>

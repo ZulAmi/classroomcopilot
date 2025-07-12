@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, BookOpen, Clock, CreditCard, Shield, Users, Sparkles, Mail } from 'lucide-react';
+import { ArrowRight, BookOpen, Clock, CreditCard, Shield, Users, Sparkles, Mail, TrendingUp, Zap } from 'lucide-react';
 
 export const CTA: React.FC = () => {
   return (
@@ -9,17 +9,17 @@ export const CTA: React.FC = () => {
           <div className="cta-header">
             <div className="cta-badge">
               <Sparkles size={16} className="badge-icon" />
-              <span className="badge-text">Ready to Get Started?</span>
+              <span className="badge-text">Scale Your Educational Business</span>
             </div>
             
             <h2 className="cta-title">
-              Transform Your 
-              <span className="cta-accent"> Teaching Today</span>
+              Transform Your Tuition Center 
+              <span className="cta-accent"> Operations Today</span>
             </h2>
             
             <p className="cta-description">
-              Join the future of lesson planning. Create engaging, curriculum-aligned lessons 
-              in minutes, not hours.
+              Join hundreds of successful tuition centers that use our platform to manage students, 
+              streamline finances, enhance teaching quality, and drive business growth.
             </p>
           </div>
           
@@ -29,26 +29,26 @@ export const CTA: React.FC = () => {
                 <Clock size={24} />
               </div>
               <div className="benefit-content">
-                <h3 className="benefit-title">Get Started Free</h3>
-                <p className="benefit-description">No credit card required to try</p>
+                <h3 className="benefit-title">Save 15+ Hours Weekly</h3>
+                <p className="benefit-description">Automate administrative tasks</p>
               </div>
             </div>
             <div className="cta-benefit">
               <div className="benefit-icon">
-                <Shield size={24} />
+                <TrendingUp size={24} />
               </div>
               <div className="benefit-content">
-                <h3 className="benefit-title">Privacy First</h3>
-                <p className="benefit-description">Your data stays secure</p>
+                <h3 className="benefit-title">Grow Enrollment</h3>
+                <p className="benefit-description">Improve parent satisfaction</p>
               </div>
             </div>
             <div className="cta-benefit">
               <div className="benefit-icon">
-                <Users size={24} />
+                <Zap size={24} />
               </div>
               <div className="benefit-content">
-                <h3 className="benefit-title">Built for Educators</h3>
-                <p className="benefit-description">By teachers, for teachers</p>
+                <h3 className="benefit-title">Enhanced Learning</h3>
+                <p className="benefit-description">AI-optimized teaching resources</p>
               </div>
             </div>
           </div>
@@ -56,12 +56,12 @@ export const CTA: React.FC = () => {
           <div className="cta-actions">
             <button className="btn-primary cta-primary">
               <BookOpen size={20} />
-              Start Creating Lessons
+              Schedule a Demo
               <ArrowRight size={16} />
             </button>
             <button className="btn-secondary cta-secondary">
               <Mail size={20} />
-              Contact Us
+              Contact Sales
             </button>
           </div>
         </div>

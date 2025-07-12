@@ -35,10 +35,11 @@
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
   text-decoration: none;
   transition: all 0.3s ease;
-  padding: var(--spacing-sm) 0;
+  position: relative;
+  z-index: 100;
 }
 
 .navbar-logo:hover {
@@ -46,15 +47,13 @@
 }
 
 .logo-icon-wrapper {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
-  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
 }
 
 .navbar-logo:hover .logo-icon-wrapper {
@@ -63,15 +62,81 @@
 }
 
 .logo-icon {
-  color: var(--white);
-  stroke-width: 2;
+  color: white; /* Explicit white for icon */
 }
 
 .logo-text {
   font-size: 1.25rem;
-  font-weight: var(--font-weight-black);
-  color: var(--text);
-  letter-spacing: -0.02em;
+  font-weight: var(--font-weight-bold);
+  color: #1a1a1a; /* Dark text for better visibility */
+  transition: color 0.3s ease;
+}
+
+/* Updated logo text styling with specific navbar prefix */
+.navbar-logo-text {
+  font-size: 1.25rem !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important; /* Add shadow for visibility on any background */
+  color: #1F2937 !important;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Strong override for navbar logo text */
+.navbar-logo-text {
+  font-size: 1.25rem !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important; /* Add shadow for visibility on any background */
+  color: #1F2937 !important;
+}
+
+/* When navbar is scrolled, use dark text */
+.navbar.scrolled .navbar-logo-text {
+  text-shadow: none !important; /* Remove shadow */
+  color: #1a1a1a !important; /* Dark text for scrolled state */
+}
+
+/* Mobile menu logo text */
+.mobile-logo .navbar-logo-text {
+  color: #1a1a1a !important; /* Always dark in mobile menu */
+  text-shadow: none !important; 
+}
+
+/* Style for when navbar is scrolled */
+.navbar.scrolled .navbar-logo-text {
+  color: #1a1a1a; /* Dark text on white background when scrolled */
+}
+
+/* For mobile menu */
+.mobile-logo .navbar-logo-text {
+  color: #1a1a1a; /* Always dark in mobile menu */
+}
+
+/* Add specific styling for scrolled state */
+.navbar.scrolled .logo-text {
+  color: #1a1a1a; /* Keep dark when scrolled for visibility */
+}
+
+/* Modify for light/dark backgrounds */
+@media (prefers-color-scheme: dark) {
+  .logo-text {
+    color: #ffffff; /* White text for dark mode */
+  }
+  
+  .navbar.scrolled .logo-text {
+    color: #ffffff; /* Keep white in dark mode when scrolled */
+  }
+}
+
+/* Add this specific override for white backgrounds */
+.navbar:not(.scrolled) .logo-text {
+  color: var(--white); /* White text when navbar is transparent */
+}
+
+/* When scrolled, always use dark text for better visibility against white background */
+.navbar.scrolled .logo-text {
+  color: #1a1a1a;
 }
 
 /* Desktop Navigation */

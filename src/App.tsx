@@ -9,6 +9,11 @@ import { MyPlans } from './MyPlans';
 import { Settings } from './Settings';
 import { AuthPage } from './AuthPage';
 import { Layout } from './Layout';
+import { Navbar } from './Navbar';
+import { Hero } from './Hero';
+import { Features } from './Features';
+import { CTA } from './CTA';
+import { Footer } from './Footer';
 import './index.css';
 
 // Protected route component
@@ -28,6 +33,7 @@ const AppContent = () => {
   if (mode === 'website') {
     return (
       <div className="app">
+        <Navbar />
         <Routes>
           {/* Website Routes */}
           <Route path="/" element={<WebsiteHomepage />} />
@@ -48,6 +54,7 @@ const AppContent = () => {
           {/* Catch all redirect */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        <Footer />
       </div>
     );
   }

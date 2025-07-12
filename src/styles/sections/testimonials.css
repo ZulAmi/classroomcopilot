@@ -83,7 +83,7 @@
   margin-bottom: var(--spacing-5xl);
 }
 
-.benefit-card {
+.testimonial-benefit-card {
   background: var(--white);
   border-radius: var(--radius-2xl);
   padding: var(--spacing-3xl);
@@ -96,7 +96,7 @@
   animation-fill-mode: both;
 }
 
-.benefit-card::before {
+.testimonial-benefit-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -106,22 +106,22 @@
   background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
 }
 
-.benefit-card:hover {
+.testimonial-benefit-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   border-color: var(--primary);
 }
 
-.benefit-card:nth-child(1) { animation-delay: 0.1s; }
-.benefit-card:nth-child(2) { animation-delay: 0.2s; }
-.benefit-card:nth-child(3) { animation-delay: 0.3s; }
-.benefit-card:nth-child(4) { animation-delay: 0.4s; }
+.testimonial-benefit-card:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-benefit-card:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-benefit-card:nth-child(3) { animation-delay: 0.3s; }
+.testimonial-benefit-card:nth-child(4) { animation-delay: 0.4s; }
 
-.benefit-icon-wrapper {
+.testimonial-benefit-icon-wrapper {
   margin-bottom: var(--spacing-xl);
 }
 
-.benefit-icon {
+.testimonial-benefit-icon {
   width: 64px;
   height: 64px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -134,7 +134,7 @@
   position: relative;
 }
 
-.benefit-icon::before {
+.testimonial-benefit-icon::before {
   content: '';
   position: absolute;
   top: -2px;
@@ -148,26 +148,26 @@
   filter: blur(8px);
 }
 
-.benefit-content {
+.testimonial-benefit-content {
   flex: 1;
 }
 
-.benefit-title {
+.testimonial-benefit-title {
   font-size: 1.5rem;
   font-weight: var(--font-weight-bold);
-  color: var(--text);
+  color: #1a1a1a; /* Dark text color for visibility */
   margin-bottom: var(--spacing-md);
   line-height: 1.3;
 }
 
-.benefit-description {
-  color: var(--gray-600);
+.testimonial-benefit-text {
+  color: #4a5568; /* Darker gray for better contrast */
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: var(--spacing-xl);
 }
 
-.benefit-features {
+.testimonial-benefit-features {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -176,21 +176,21 @@
   gap: var(--spacing-md);
 }
 
-.benefit-feature {
+.testimonial-benefit-feature {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
-  color: var(--gray-700);
+  color: #2d3748; /* Darker text for features */
   font-size: 0.9rem;
   font-weight: var(--font-weight-medium);
 }
 
-.benefit-feature svg {
+.testimonial-benefit-feature svg {
   color: var(--secondary);
   flex-shrink: 0;
 }
 
-.benefit-feature span {
+.testimonial-benefit-feature span {
   flex: 1;
 }
 
